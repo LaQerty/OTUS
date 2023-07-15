@@ -4,10 +4,7 @@ import pytest
 
 
 def test_init_square():
-    try:
-        s = Square(12)
-    except:
-        assert False
+    s = Square(12)
     assert True
 
 
@@ -39,17 +36,11 @@ def test_add_area_square():
     s = Square(4)
     f_area = s.area
     t = Triangle(12, 13, 14)
-    try:
-        s.add_area(t)
-    except ValueError:
-        assert False
+    s.add_area(t)
     assert s.area == f_area + t.area
 
 
 def test_neg_add_area_square():
     s = Square(4)
-    try:
+    with pytest.raises(ValueError):
         s.add_area(13)
-        assert False
-    except ValueError:
-        assert True

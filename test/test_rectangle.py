@@ -4,10 +4,7 @@ import pytest
 
 
 def test_init_rectangle():
-    try:
-        r = Rectangle(12, 12)
-    except:
-        assert False
+    r = Rectangle(12, 12)
     assert True
 
 
@@ -39,17 +36,11 @@ def test_add_area_rectangle():
     r = Rectangle(4, 4)
     f_area = r.area
     s = Square(12)
-    try:
-        r.add_area(s)
-    except ValueError:
-        assert False
+    r.add_area(s)
     assert r.area == f_area + s.area
 
 
 def test_neg_add_area_rectangle():
     r = Rectangle(4, 4)
-    try:
+    with pytest.raises(ValueError):
         r.add_area(13)
-        assert False
-    except ValueError:
-        assert True

@@ -5,19 +5,13 @@ import pytest
 
 
 def test_init_triangle():
-    try:
-        t = Triangle(12, 13, 14)
-    except:
-        assert False
+    t = Triangle(12, 13, 14)
     assert True
 
 
 def test_uncorrect_values_init_triangle():
-    try:
+    with pytest.raises(ValueError):
         t = Triangle(1, 3, 14)
-        assert False
-    except ValueError:
-        assert True
 
 
 def test_area_triangle():
@@ -50,17 +44,11 @@ def test_add_area_triangle():
     t = Triangle(4, 5, 6)
     f_area = t.area
     c = Circle(12)
-    try:
-        t.add_area(c)
-    except ValueError:
-        assert False
+    t.add_area(c)
     assert t.area == f_area + c.area
 
 
 def test_neg_add_area_triangle():
     t = Triangle(4, 5, 6)
-    try:
+    with pytest.raises(ValueError):
         t.add_area(13)
-        assert False
-    except ValueError:
-        assert True
