@@ -5,7 +5,7 @@ import pytest
 
 def test_init_square():
     s = Square(12)
-    assert True
+    assert s.a == 12
 
 
 def test_area_square():
@@ -17,7 +17,8 @@ def test_change_area_square():
     s = Square(4)
     f_area = s.area
     s.a = 5
-    assert s.area != f_area and s.area == 5 * 5
+    assert s.area != f_area 
+    assert s.area == 5 * 5
 
 
 def test_perimeter_square():
@@ -29,7 +30,8 @@ def test_change_perimeter_square():
     s = Square(3)
     f_perimeter = s.perimeter
     s.a = 4
-    assert s.perimeter != f_perimeter and s.perimeter == 4 * 4
+    assert s.perimeter != f_perimeter 
+    assert s.perimeter == 4 * 4
 
 
 def test_add_area_square():
