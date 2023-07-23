@@ -6,7 +6,9 @@ import pytest
 
 def test_init_triangle():
     t = Triangle(12, 13, 14)
-    assert True
+    assert t.a == 12
+    assert t.b == 13
+    assert t.c == 14
 
 
 def test_uncorrect_values_init_triangle():
@@ -25,7 +27,8 @@ def test_change_area_triangle():
     f_area = t.area
     t.a = 5
     p = t.perimeter / 2
-    assert t.area != f_area and t.area == math.sqrt(p * (p - 5) * (p - 5) * (p - 6))
+    assert t.area != f_area 
+    assert t.area == math.sqrt(p * (p - 5) * (p - 5) * (p - 6))
 
 
 def test_perimeter_triangle():
@@ -37,7 +40,8 @@ def test_change_perimeter_triangle():
     t = Triangle(3, 4, 5)
     f_perimeter = t.perimeter
     t.a = 4
-    assert t.perimeter != f_perimeter and t.perimeter == 4 + 4 + 5
+    assert t.perimeter != f_perimeter 
+    assert t.perimeter == 4 + 4 + 5
 
 
 def test_add_area_triangle():
